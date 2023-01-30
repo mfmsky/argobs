@@ -15,7 +15,7 @@ spec:
       - name: secretpat
       containers:
       - name: backend-acidentes
-        image: pmdferreira/patient-care:acidentesv1
+        image: /pmdferreira/patient-care:acidentesv1
         resources:
           limits:
             memory: "500Mi"
