@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend_acidentes
+  name: backend-acidentes
 spec:
   selector:
     matchLabels:
-      app: backend_acidentes
+      app: backend-acidentes
   template:
     metadata:
       labels:
-        app: backend_acidentes
+        app: backend-acidentes
     spec:
       containers:
-      - name: backend_acidentes
+      - name: backend-acidentes
         image: pmdferreira/patient-care:acidentesv1
         resources:
           limits:
