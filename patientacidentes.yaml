@@ -12,7 +12,7 @@ spec:
         app: backend-acidentes
     spec:
       imagePullSecrets:
-      - name: secretpat
+        - name: secretpat
       containers:
       - name: backend-acidentes
         image: pmdferreira/patient-care:acidentesv1
