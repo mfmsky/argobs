@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend_acidentes
+spec:
+  selector:
+    matchLabels:
+      app: backend_acidentes
+  template:
+    metadata:
+      labels:
+        app: backend_acidentes
+    spec:
+      containers:
+      - name: backend_acidentes
+        image: pmdferreira/patient-care:acidentesv1
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        imagePullSecrets:
+        - name: patientesecret
