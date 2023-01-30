@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: backend-acidentes
-        image: pmdferreira/patient-care:acidentesv1
+        image: /patient-care/acidentesv1:latest
         resources:
           limits:
             memory: "500Mi"
