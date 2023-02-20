@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patientcare
+spec:
+  selector:
+    matchLabels:
+      app: patientcare
+  template:
+    metadata:
+      labels:
+        app: patientcare
+    spec:
+      imagePullSecrets:
+      - name: secretpat
+      containers:
+      - name: patientcare
+        image: pmdferreira/patient-care:apiv3
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patientcare-service
+spec:
+  selector:
+    app: patientcare
+  ports:
+  - port: 80
+    targetPort: 5000
+---
