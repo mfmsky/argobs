@@ -15,7 +15,7 @@ spec:
       - name: secretpat
       containers:
       - name: patientcare
-        image: pmdferreira/patient-care:apiv3
+        image: pmdferreira/patient-care:apiv5
         resources:
           limits:
             memory: "1Gi"
