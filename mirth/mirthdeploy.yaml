@@ -24,7 +24,7 @@ spec:
         - containerPort: 8443
         volumeMounts:
             - mountPath: /mirth/custom-lib
-              name: jar
+              name: data
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
