@@ -12,6 +12,10 @@ spec:
       labels:
         app: mirthconnect
     spec:
+      volumes:
+       - name: data
+         persistentVolumeClaim:
+           claimName: mirth-vol
       containers:
       - name: mirthconnect
         image: nextgenhealthcare/connect:3.12
@@ -22,6 +26,21 @@ spec:
         ports:
         - containerPort: 8080
         - containerPort: 8443
+        volumeMounts:
+          - mountPath: /custom-lib
+            name: data
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mirth-vol
+spec:
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5G
 ---
 apiVersion: v1
 kind: Service
