@@ -32,7 +32,9 @@ spec:
   selector:
     app: mirthconnect
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
     targetPort: 8080
-  - port: 8443
+  - name: https
+    port: 8443
     targetPort: 8443
