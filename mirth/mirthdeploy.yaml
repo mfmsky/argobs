@@ -42,6 +42,7 @@ metadata:
   name: mirth-service-https
   namespace: mirth-sys
 spec:
+  type: LoadBalancer
   selector:
     app: mirthconnect
   ports:
