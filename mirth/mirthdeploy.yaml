@@ -21,6 +21,7 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8443
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -31,5 +32,9 @@ spec:
   selector:
     app: mirthconnect
   ports:
-  - port: 10443
+  - name: https
+    port: 18080
+    targetPort: 8080
+  - name: https
+    port: 10443
     targetPort: 8443
