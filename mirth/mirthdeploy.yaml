@@ -31,5 +31,5 @@ spec:
   selector:
     app: mirthconnect
   ports:
-  - port: 8443
+  - port: 80
     targetPort: 8443
