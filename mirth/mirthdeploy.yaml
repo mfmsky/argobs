@@ -24,10 +24,10 @@ spec:
         - containerPort: 8443
         volumeMounts:
             - mountPath: /custom-lib/
-              name: data
+              name: custom-lib
         volumes:
           - emptyDir: {}
-            name: data
+            name: custom-lib
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
