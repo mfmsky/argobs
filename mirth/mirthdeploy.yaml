@@ -33,8 +33,8 @@ spec:
     app: mirthconnect
   ports:
   - name: http
-    port: 18080
+    port: 80
     targetPort: 8080
   - name: https
-    port: 10443
+    port: 443
     targetPort: 8443
