@@ -23,8 +23,11 @@ spec:
         - containerPort: 8080
         - containerPort: 8443
         volumeMounts:
-            - mountPath: /mirth/custom-lib
+            - mountPath: /custom-lib/
               name: data
+        volumes:
+          - emptyDir: {}
+            name: data
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
