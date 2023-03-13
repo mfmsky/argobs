@@ -22,27 +22,6 @@ spec:
         ports:
         - containerPort: 8080
         - containerPort: 8443
-        volumeMounts:
-            - mountPath: /custom-lib/
-              name: custom-lib
-        volumes:
-          - emptyDir: {}
-            name: custom-lib
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  labels:
-    app: mirthconnect
-  name: mirth-pvc
-  namespace: mirth-sys
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: openebs-hostpath
 ---
 apiVersion: v1
 kind: Service

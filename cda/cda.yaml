@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-azurecr
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJic2ltcGxlLmF6dXJlY3IuaW8iOnsidXNlcm5hbWUiOiJic2ltcGxlIiwicGFzc3dvcmQiOiJVWXkvaG94KytSenBwTWE4S0lWcWl3TGloNU1ZQzkyOVN5ZkpZQllDUGwrQUNSRHV6bElUIiwiYXV0aCI6IlluTnBiWEJzWlRwVldYa3ZhRzk0S3l0U2VuQndUV0U0UzBsV2NXbDNUR2xvTlUxWlF6a3lPVk41WmtwWlFsbERVR3dyUVVOU1JIVjZiRWxVIn19fQ==
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cda-bunity
+spec:
+  selector:
+    matchLabels:
+      app: bunity
+  template:
+    metadata:
+      labels:
+        app: bunity
+    spec:
+      imagePullSecrets:
+        - name: secret-azurecr
+      containers:
+      - name: bunity-container
+        image: bsimple.azurecr.io/bunity-api:v1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
